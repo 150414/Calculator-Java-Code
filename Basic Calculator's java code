@@ -1,0 +1,166 @@
+package com.example.calculator;
+
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.Button;
+import android.widget.TextView;
+import android.view.View;
+
+
+
+public class MainActivity extends AppCompatActivity {
+
+    Button bt0,bt1,bt2,bt3,bt4,bt5,bt6,bt7,bt8,bt9,btad,btsub,btmul,btdiv,btnans,clear;
+    TextView ans;
+    double var1,var2;
+    boolean add,sub ,mul,div;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        bt1 = (Button) findViewById(R.id.btn1);
+        bt2 = (Button) findViewById(R.id.btn2);
+        bt3 = (Button) findViewById(R.id.btn3);
+        bt4 = (Button) findViewById(R.id.btn4);
+        bt5 = (Button) findViewById(R.id.btn5);
+        bt6 = (Button) findViewById(R.id.btn6);
+        bt7 = (Button) findViewById(R.id.btn7);
+        bt8 = (Button) findViewById(R.id.btn8);
+        bt9 = (Button) findViewById(R.id.btn9);
+        bt0 = (Button) findViewById(R.id.btn0);
+        btad = (Button) findViewById(R.id.btnadd);
+        btsub = (Button) findViewById(R.id.btnsub);
+        btmul= (Button) findViewById(R.id.btnmul);
+        btdiv = (Button) findViewById(R.id.btndiv);
+        btnans = (Button) findViewById(R.id.btnans);
+        ans= (TextView) findViewById(R.id.result);
+        clear =(Button) findViewById(R.id.clear) ;
+
+        bt9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                 ans.setText(ans.getText()+"9");
+            }
+        });
+        bt8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ans.setText(ans.getText()+"8");
+            }
+        });
+        bt7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ans.setText(ans.getText()+"7");
+            }
+        });
+        bt6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ans.setText(ans.getText()+"6");
+            }
+        });
+        bt5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ans.setText(ans.getText()+"5");
+            }
+        });
+        bt4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ans.setText(ans.getText()+"4");
+            }
+        });
+        bt3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ans.setText(ans.getText()+"3");
+            }
+        });
+        bt2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ans.setText(ans.getText()+"2");
+            }
+        });
+        bt1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ans.setText(ans.getText()+"1");
+            }
+        });
+        bt0.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ans.setText(ans.getText()+"0");
+            }
+        });
+        btad.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                var1= Double.parseDouble(ans.getText()+"");
+                add=true;
+                ans.setText(null);
+            }
+        });
+        btsub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                var1= Double.parseDouble(ans.getText()+"");
+                sub=true;
+                ans.setText(null);
+            }
+        });
+        btmul.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                var1= Double.parseDouble(ans.getText()+"");
+                mul=true;
+                ans.setText(null);
+            }
+        });
+        btdiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                var1= Double.parseDouble(ans.getText()+"");
+                div=true;
+                ans.setText(null);
+            }
+        });
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ans.setText(" ");
+            }
+        });
+        btnans.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                var2 = Double.parseDouble(ans.getText()+"");
+                if(add==true)
+                {
+                    ans.setText(var1 + var2+"");
+                    add=false;
+                }
+                if(sub==true)
+                {
+                    ans.setText(var1 - var2+"");
+                    sub=false;
+                }
+                if(mul==true)
+                {
+                    ans.setText(var1 * var2+"");
+                    mul=false;
+                }
+                if(div==true)
+                {
+                    ans.setText(var1 / var2+"");
+                    div=false;
+                }
+
+            }
+        });
+    }
+}
